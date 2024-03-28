@@ -1,4 +1,4 @@
-#Code Retrieved from: https://www.makeuseof.com/python-hand-tracking-opencv/
+#Initial Code Retrieved from: https://www.makeuseof.com/python-hand-tracking-opencv/
 import cv2
 import mediapipe as mp
 import imutils
@@ -29,8 +29,14 @@ def draw_hand_connections(img, results):
                 cx, cy = int(lm.x * w), int(lm.y * h)
 
                 # Printing each landmark ID and coordinates
-                # on the terminal
-                print(id, cx, cy)
+                #print(id, cx, cy)
+                if id==8:
+                    if cx<250:
+                        print("Su dedo indice está a la derecha")  
+                    
+                    elif cx> 250:
+                        print("Su dedo indice está a la izquierda")  
+
 
                 # Creating a circle around each landmark
                 cv2.circle(img, (cx, cy), 10, (0, 255, 0),
